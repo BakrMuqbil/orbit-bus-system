@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import './Sidebar-1.css';
-import logo from '../../assets/images/logo.png'; // تأكد من المسارات
+import logo from '../../assets/logo.png'; // تأكد من المسارات
 
-import profileImg from "../../assets/images/profile-img.jpg"
+import profileImg from "../../assets/profile-img.jpg"
 
 const Sidebar = () => {
   const navigate = useNavigate();
