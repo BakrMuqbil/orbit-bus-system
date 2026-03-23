@@ -1,0 +1,157 @@
+.list-wrapper
+{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.list-header {
+  position: sticky; 
+  top: 0;
+  z-index: 1000; 
+  border-radius: 15px;
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.list-header .title {
+  font-size: 24px;
+  color: #f4f7fe;
+  font-weight: 800;
+}
+.list-header .count {
+  
+  background: transparent;
+  
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #718096;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.save-btn {
+  
+  top: 5px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 35px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(107, 70, 255, 0.4);
+  cursor: pointer;
+  background: rgba(98, 0, 234, 0.4);
+}
+
+.vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* الحاوية الرمادية الفاتحة - يجب أن تكون flex-column وتغلف كل شيء */
+.driver-row-card {
+  background: #111c44;
+  border-radius: 25px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* لترتيب المعلومات فوق الأزرار */
+  border-right: 8px solid rgba(98, 0, 234, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  min-height: 180px;
+  /* ضمان مساحة كافية للأزرار بالداخل */
+  box-sizing: border-box;
+}
+
+.driver-row-card.dimmed {
+  border-right-color: #3e000d;
+}
+
+.card-body h3 {
+  color: #a3aed0;
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+}
+.sub-info span {
+  display: block;
+  color: #d3d3d4;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+/* فوتر البطاقة - هنا سر بقاء الأزرار بالداخل */
+.card-footer {
+  margin-top: auto;
+  /* يدفع الأزرار لأسفل البطاقة مع بقائها داخلها */
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+.delete-icon-btn {
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0px solid #cfd9e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.edit-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0px solid #cfd9e0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.status-toggle-btn {
+  background: rgba(98, 0, 234, 0.4);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.badge-active {
+  background: #dcfce7;
+  color: #166534;
+}
+.badge-inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}

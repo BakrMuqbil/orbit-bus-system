@@ -1,0 +1,376 @@
+/* الحاوية الرئيسية */
+.list-wrapper {
+  flex: 1;
+  width: 100%;
+  /* تأكيد أن القائمة تسمح بالتمرير العمودي */
+  overflow-y: visible; 
+  padding-bottom: 80px; 
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1px;
+  background: transparent;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma,
+  Geneva, Verdana, sans-serif;
+  position: relative;
+}
+.main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 10px;
+}
+.driver-row-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.driver-row-card:hover {
+  transform: translateX(-5px); /* حركة بسيطة لليمين عند التأشير */
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.05);
+  border-color: #6200ea;
+}
+
+/* أيقونة المستخدم الداكنة */
+.dark-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #1e293b; /* نفس لون السايدبار لتوحيد الهوية */
+  color: white;
+  border-radius: 12px; /* زوايا مربعة دائرية قليلاً */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* زر الإضافة العائم (Floating Action Button) */
+.floating-add-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px; /* تم وضعه جهة اليسار لأن الكتابة بالعربي تبدأ من اليمين */
+  width: 60px;
+  height: 60px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(98, 0, 234, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+}
+
+.floating-add-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.floating-add-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+  background-color: #4500b5;
+}
+
+.floating-add-btn:active {
+  transform: scale(0.9);
+}
+
+/* تأثير نبضي اختياري لجذب الانتباه للزر */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(98, 0, 234, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(98, 0, 234, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(98, 0, 234, 0); }
+}
+
+.floating-add-btn {
+  animation: pulse 2s infinite;
+}
+
+/* بقية تنسيقات الـ Card السابقة */
+.list-header .title { font-size: 22px; font-weight: 800; color: #1a1a1a; margin: 0; }
+.vertical-stack { display: flex; flex-direction: column; gap: 15px; }
+.driver-row-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+}
+.dark-circle { width: 55px; height: 55px; background-color: #333333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #cccccc; }
+.details-section { flex: 1; text-align: right; margin-right: 15px; }
+.name-heading { font-size: 17px; font-weight: 700; color: #2d3436; margin: 0 0 4px 0; }
+.sub-info span { font-size: 13px; color: #636e72; display: block; }
+.status-tag { font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 12px; }
+.badge-active { background-color: #d1fae5; color: #065f46; }
+.badge-due { background-color: #fee2e2; color: #991b1b; }
+.navigate-btn { background: none; border: none; color: #cbd5e0; cursor: pointer; }
+
+/* الرأس */
+.list-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+
+.list-header .title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.list-header .count {
+  background: #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+  color: #4a5568;
+}
+
+/* القائمة العمودية */
+.vertical-stack {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* بطاقة السائق (Row Card) */
+.driver-row-card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.driver-row-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-color: #6200ea;
+}
+
+.driver-row-card:active {
+  transform: scale(0.98);
+}
+
+/* دائرة الأيقونة */
+.avatar-section {
+  margin-left: 15px;
+}
+
+.dark-circle {
+  width: 55px;
+  height: 55px;
+  background-color: #333333; /* اللون الداكن المطلوب */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccccc;
+}
+
+.icon-svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* منطقة النصوص */
+.details-section {
+  flex: 1;
+  text-align: right;
+}
+
+.name-heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d3436;
+  margin: 0 0 4px 0;
+}
+
+.sub-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sub-info span {
+  font-size: 13px;
+  color: #2d3436;
+}
+
+.label {
+  font-style: normal;
+  color: #2d3436;
+  margin-left: 4px;
+}
+
+/* الحالات والأزرار */
+.action-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 55px;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff7675;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+.delete-btn:hover { color: #d63031; transform: scale(1.2); }
+
+.status-tag {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+/* ألوان الحالات من الـ JSON */
+.badge-active { background-color: #d1fae5; color: #065f46; }
+.badge-due { background-color: #fee2e2; color: #991b1b; }
+
+.navigate-btn {
+  background: none;
+  border: none;
+  color: #cbd5e0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.driver-row-card:hover .navigate-btn {
+  color: #6200ea;
+}
+/* تنسيق النافذة المنبثقة Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: inherit;
+  outline: none;
+}
+
+.modal-content input:focus {
+  border-color: #6200ea;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn {
+  flex: 2;
+  background: #6200ea;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  flex: 1;
+  background: #f1f1f1;
+  color: #666;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+/* تنسيق عرض التاريخ داخل الكارد */
+.date-display {
+  font-size: 11px !important;
+  color: black !important;
+  margin-top: 4px;
+  border-top: 1px dashed #edf2f7;
+  padding-top: 4px;
+}
+
+/* تنسيق حقل التاريخ داخل المودال */
+.input-group {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.input-label {
+  display: block;
+  font-size: 12px;
+  color: #718096;
+  margin-bottom: 5px;
+}
+
+.modal-content input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: inherit;
+  color: #4a5568;
+}
+.bus-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: inherit;
+  color: #4a5568;
+  margin-bottom: 10px;
+}
+

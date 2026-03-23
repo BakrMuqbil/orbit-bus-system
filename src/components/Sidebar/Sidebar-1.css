@@ -1,0 +1,159 @@
+/* Sidebar الأساسي */
+.sidebar {
+  position: fixed;
+  top: 3px;
+  left: 5px;
+  height: 100%;
+  width: 57px; /* العرض عند التصغير */
+  display: flex;
+  border-radius: 15px;
+  flex-direction: column;
+  background: #161a2d;
+  /* قمنا بتغيير الـ Padding من 20px إلى 10px جهة اليسار واليمين */
+  padding: 15px 5px; 
+  transition: all 0.4s ease;
+}
+  
+
+/* التوسيع عند التمرير *//*
+.sidebar:hover {
+  width: 67px;
+}*/
+
+.sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+  padding-left: 5px; /* محاذاة اللوجو مع الأيقونات بالأسفل */
+  
+}
+
+.sidebar .sidebar-header img {
+  width: 42px;
+  border-radius: 50%;
+}
+
+.sidebar .sidebar-header h2 {color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 23px;
+  
+  /* الإخفاء */
+  opacity: 0; 
+  display: block; /* نستخدم block مع opacity بدلاً من none للسماح بالأنيميشن */
+  pointer-events: none; /* لمنع التفاعل مع النص وهو مخفي */
+  transition: opacity 0.3s ease; /* سرعة الظهور والاختفاء */
+}
+.sidebar:hover .sidebar-header h2 {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+/* إدارة العناوين الجانبية */
+.sidebar-links h4 {
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 10px 0;
+  position: relative;
+}
+
+.sidebar-links h4 span {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.sidebar:hover .sidebar-links h4 span {
+  opacity: 0;
+}
+
+.sidebar-links .menu-separator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #4f52ba;
+  transform: scaleX(1);
+  transition: 0.3s;
+}
+
+.sidebar:hover .sidebar-links .menu-separator {
+  transform: scaleX(0);
+}
+
+.sidebar-links {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sidebar-links li {
+  width:100%;
+}
+
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  /* تقليل المسافة بين الأيقونة والنص من 20px إلى 10px */
+  gap: 0 20px; 
+  color: #fff;
+  padding: 15px 5px; 
+  text-decoration: none;
+  transition: 0.2s ease;
+  justify-content: flex-start;
+  
+}
+.sidebar-links li a span {
+  margin-left: 5px; /* تحكم دقيق جداً في مكان الأيقونة من الحافة اليسرى */
+}
+
+
+.sidebar-links li a:hover {
+  color: #161a2d;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* قسم المستخدم في الأسفل */
+.user-account {
+  margin-top: auto;
+  padding: 12px 5px; /* محاذاة صورة المستخدم مع القائمة */
+  margin-left: 0;
+  
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.user-profile img {
+  width: 42px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.user-detail {
+  margin-left: 23px;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.sidebar:hover .user-detail {
+  opacity: 0;
+}
+
+.sidebar:hover .user-account {
+  background: #fff;
+  border-radius: 8px;
+}
+
+.sidebar:hover .user-profile {
+  color: #161a2d;
+}

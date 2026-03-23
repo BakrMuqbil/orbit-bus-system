@@ -1,0 +1,60 @@
+.home-layout {display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0c112e; /* لون داكن عميق يتناسب مع السايدبار */
+  overflow: hidden; /* يمنع التمرير في الصفحة ككل ويسمحه فقط للمحتوى */
+  
+}
+
+.main-content {
+  flex: 1;
+  height: calc(100vh - 30px);
+  
+  margin-left: 60px; /* نفس عرض السايدبار المنكمش */
+  padding: 5px;
+  transition: margin-left 0.4s ease; /* لتناغم الحركة مع السايدبار
+  */
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* عندما يتم تمرير الماوس على السايدبار (اختياري) */
+/* إذا أردت إزاحة المحتوى عند توسع السايدبار: */
+/* .sidebar:hover + .main-content { margin-left: 260px; } */
+
+.welcome-section h1 {
+  font-size: 2rem;
+  color: #161a2d;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  color: #6c757d;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4f52ba;
+}
+
+.status-ok {
+  color: #28a745;
+  font-weight: 600;
+}
